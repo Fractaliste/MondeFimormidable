@@ -263,7 +263,7 @@ return array(
 	| what is actually going on here.
 	|
 	*/
-	'image_tag' => new Codesleeve\AssetPipeline\Composers\ImageComposer,
+	'image_tag' => new Codesleeve\AssetPipeline\Composers\customImageTagCodeSleeve(),
 
 	/*
 	|--------------------------------------------------------------------------

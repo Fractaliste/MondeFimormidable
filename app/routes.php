@@ -28,7 +28,7 @@ Route::get('date/{year}/{mois}', array('uses' => 'navigation@mois'))->where('yea
 Route::get('historique', array('uses'=> 'navigation@historique'));
 Route::get('article/{id}', array('uses' => 'article@show'));
 
-// Gallerie
+// Galerie
 Route::get('galerie', array('uses' => 'asset@galerie', 'as' => 'galerie'));
 
 /* Login / logout */
