@@ -23,7 +23,7 @@ return array(
       | your application so that it is used when running Artisan tasks.
       |
      */
-    'url' => 'http://localhost',
+    'url' => 'http://monde-fimormidable.fr',
     /*
       |--------------------------------------------------------------------------
       | Application Timezone
@@ -34,7 +34,7 @@ return array(
       | ahead and set this to a sensible default for you out of the box.
       |
      */
-    'timezone' => 'UTC',
+    'timezone' => 'Europe/Paris',
     /*
       |--------------------------------------------------------------------------
       | Application Locale Configuration
@@ -45,7 +45,7 @@ return array(
       | to any of the locales which will be supported by the application.
       |
      */
-    'locale' => 'en',
+    'locale' => 'fr',
     /*
       |--------------------------------------------------------------------------
       | Encryption Key
@@ -94,6 +94,7 @@ return array(
         'Illuminate\Validation\ValidationServiceProvider',
         'Illuminate\View\ViewServiceProvider',
         'Illuminate\Workbench\WorkbenchServiceProvider',
+        'Intervention\Image\ImageServiceProvider',
         'Codesleeve\AssetPipeline\AssetPipelineServiceProvider',
     ),
     /*
@@ -155,5 +156,6 @@ return array(
         'URL' => 'Illuminate\Support\Facades\URL',
         'Validator' => 'Illuminate\Support\Facades\Validator',
         'View' => 'Illuminate\Support\Facades\View',
+        'Image' => 'Intervention\Image\Facades\Image',
     ),
 );

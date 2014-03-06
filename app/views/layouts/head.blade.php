@@ -1,0 +1,1 @@
+<meta charset="UTF-8"><title>Un monde fimormidable !</title>{{stylesheet_link_tag()}}<!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>{{HTML::style('style-ie.css')}}<![endif]-->

@@ -1,0 +1,2 @@
+#RedirectMatch permanent ^/$ http://monde-fimormidable.fr/
+#RedirectMatch permanent ^/(?!public) http://monde-fimormidable.fr/
