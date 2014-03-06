@@ -1,0 +1,64 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 12 nov. 2013, 16:27:42
+    Author     : Raphiki
+*/
+
+/* Override style.css */
+#content {
+    float: none;
+    max-width: none;
+}
+
+#navigation {
+  padding-left: 0px;   
+}
+
+/* Mise en forme */
+
+#ad_article_edit #fleft textarea {
+    width: 100%;
+}
+
+#ad_article_edit #fright input,
+#ad_article_edit #fright button {
+    width: 100%;
+    margin: auto;
+}
+
+#ad_article_edit #fright select {
+    width: 100%;
+}
+
+#ad_article_edit .large {
+    width: 100%;
+}
+
+#navigation li a {
+    padding: 0 20px;
+}
+
+.ad_em {
+    padding-left: 7px;
+    font-size: 0.7em;
+    color:#262626;
+}
+
+td button {
+    margin-right: 7px;
+}
+
+td div{
+    overflow: hidden;
+    text-overflow:  ellipsis;
+    max-width: 100px;
+    max-height: 2.6em;
+}
+
+td form {
+    display: inline;
+}
