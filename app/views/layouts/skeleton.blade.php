@@ -16,9 +16,9 @@
                 <nav id="menu" class="fleft">
                     @yield('menu')
                 </nav>
-                <section id="content" class="fright">
+                <main id="content" class="fright">
                     @yield('content')
-                </section>
+                </main>
             </div>
             <div id="push"></div>
         </div>
