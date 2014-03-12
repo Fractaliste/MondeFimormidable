@@ -7,17 +7,34 @@ and open the template in the editor.
     Created on : 24 févr. 2014, 13:51:33
     Author     : Raphiki
 */
+
+@pageWidth: 900px;
+@backgroundColor: #FFDB73;
+@margeFooter:23px;
+@headdingFontSize: 2em;
+@headdingMarginLeft: 10px;
+
 html, body {
-    height: 100%
+    height: 100%;
 }
 
 body {
-    max-width:900px;
+    max-width:@pageWidth;
     margin: auto;
-    background-color:#FFDB73;
+    background-color:@backgroundColor;
     color: #333;
-    font-family: Corbel, Verdana, sans-serif;;
+    font-family: Corbel, Verdana, sans-serif;
     padding-top: 33px;
+    li {
+        list-style:none;
+    }
+    a {
+        color: #009FDA;
+        text-decoration: none;
+        &:hover {
+            color: #00BAFF;
+        }
+    }
 }
 
 @font-face{
@@ -31,54 +48,75 @@ body {
     font-style: normal;
 }
 
+// Surchargement des fonts Semantic UI pour correspondre au Path
+@font-face {
+    font-family: 'Basic Icons';
+    src: url(fonts/basic.icons.eot);
+    src: url(fonts/basic.icons.eot?#iefix) format('embedded-opentype'),
+        url(fonts/basic.icons.svg#basic.icons) format('svg'),
+        url(fonts/basic.icons.woff) format('woff'),
+        url(fonts/basic.icons.ttf) format('truetype');
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-decoration: inherit;
+    text-transform: none;
+}
+@font-face {
+    font-family: 'Icons';
+    src: url(fonts/icons.eot);
+    src: url(fonts/icons.eot?#iefix) format('embedded-opentype'),
+        url(fonts/icons.svg#icons) format('svg'),
+        url(fonts/icons.woff) format('woff'),
+        url(fonts/icons.ttf) format('truetype');
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-decoration: inherit;
+    text-transform: none;
+}
+
 #canevas {
     min-height: 100%;
     height: auto;
-    margin-bottom: -23px;
+    margin-bottom: -@margeFooter;
 }
 
 #footer, #push {
-    height: 23px;
+    height: @margeFooter;
 }
 
-.fleft {
-    float: left;
-}
+#content {
+    h1 {
+        font-size: 2.5em;
+        font-family: Trebuchet, sans-serif;
+        color: #E61717;
+        margin-left: 30px;
+        a {
+            color: #E61717;
+            text-decoration: none;
+        }
+    }
 
-.fright {
-    float: right;
-}
+    h2 {
+        font-size: @headdingFontSize;
+        margin-left: @headdingMarginLeft;
+    }
 
-h1 {
-    font-size: 2.5em;
-    font-family: Trebuchet, sans-serif;
-    color: #E61717;
-    margin-left: 30px;
-}
+    h3 {
+        font-size: @headdingFontSize - 2 * 2;
+        margin-left: @headdingMarginLeft + 5 * 2;
+    }
 
-h1 a {
-    color: #E61717;
-    text-decoration: none;
-}
+    h4 {
+        font-size: @headdingFontSize - 2 * 3;
+        margin-left: @headdingMarginLeft + 5 * 3;
+    }
 
-h2 {
-    font-size: 2em;
-    margin-left: 10px;
-}
-
-h3 {
-    font-size: 1.7em;
-    margin-left: 15px;
-}
-
-h4 {
-    font-size: 1.5em;
-    margin-left: 20px;
-}
-
-h5 {
-    font-size: 1.3em;
-    margin-left: 25px;
+    h5 {
+        font-size: @headdingFontSize - 2 * 4;
+        margin-left: @headdingMarginLeft + 5 * 4;
+    }
 }
 
 button.yellow,
@@ -90,56 +128,66 @@ input[type=button].yellow {
     text-shadow: 0 -1px 0 #7C7F20;
     color: #fff;
     border: 1px solid #7C7F20;
-    background: rgb(143,196,0);
-    background: -moz-linear-gradient(top, rgba(143,196,0,1) 0%, rgba(107,165,0,1) 100%);
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(143,196,0,1)), color-stop(100%,rgba(107,165,0,1)));
-    background: -webkit-linear-gradient(top, rgba(208, 212,53,1) 0%,rgba(165, 169, 0,1) 100%);
-    background: -o-linear-gradient(top, rgba(143,196,0,1) 0%,rgba(107,165,0,1) 100%);
-    background: linear-gradient(top, rgba(143,196,0,1) 0%,rgba(107,165,0,1) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8fc400', endColorstr='#6ba500',GradientType=0 );
+    .gradient(rgba(143,196,0,1) 0%,rgba(107,165,0,1) 100%);
+    /*    background: rgb(143,196,0);
+        background: -moz-linear-gradient(top, rgba(143,196,0,1) 0%, rgba(107,165,0,1) 100%);
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(143,196,0,1)), color-stop(100%,rgba(107,165,0,1)));
+        background: -webkit-linear-gradient(top, rgba(208, 212,53,1) 0%,rgba(165, 169, 0,1) 100%);
+        background: -o-linear-gradient(top, rgba(143,196,0,1) 0%,rgba(107,165,0,1) 100%);
+        background: linear-gradient(top, rgba(143,196,0,1) 0%,rgba(107,165,0,1) 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8fc400', endColorstr='#6ba500',GradientType=0 );*/
 }
 
 /* Header */
 #header {
     margin-bottom: 40px;
-}
-
-#h-titre h1 {
-    padding:10px 0px 0px 15px;
-}
-
-#h-titre  a{
-    color:#93002F;
-    font-family:Airplanes;
-    font-size:5vw;
-    font-weight: normal;
-    text-decoration: none;
-}
-
-#h-navbar {
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    border-radius: 5px;
-    background: url('banniere.png') no-repeat;
-}
-
-#h-navbar ul {
-    border: none;
-    background: none;
-}
-
-#h-navbar li a {
-    text-shadow: 1px 1px 3px #666, -1px -1px 3px #FFF, 1px 1px #666, -1px -1px #FFF;
-    color: cornsilk;
-    font-size: 1.1em;
-    cursor: pointer;
-}
-
-#h-navbar li a:hover {
-    background-color: rgba(255, 255, 255, 0.3);
+    #titre { 
+        h1 {
+            padding:10px 0px 0px 15px;
+            margin: 0px;
+        }
+        a{
+            color:#93002F;
+            font-family:Airplanes;
+            font-size:5vw;
+            font-weight: normal;
+            text-decoration: none;
+        }
+    }
+    #navbar {
+        .border-rounded(5px);
+        background: url('banniere.png') no-repeat;
+        div {
+            border: none;
+            background: none;
+            .box-shadow(none);
+        }
+        a {
+            text-shadow: 1px 1px 3px #666, -1px -1px 3px #FFF, 1px 1px #666, -1px -1px #FFF;
+            color: cornsilk;
+            cursor: pointer;
+            font-size:1.07rem;
+            &:hover {
+                background-color: rgba(255, 255, 255, 0.3);
+            }
+        }
+    }
 }
 
 /* Navbar */
+#navigation {
+    background-color: #FFCE40;
+    padding-left: 30px;
+    border-bottom: #eee thin groove ;
+    a {
+        margin-bottom: 0px;
+        padding: 5px;
+        .active {
+            color: #333;
+        }
+    }
+}
+
 #menu {
     margin: 41px auto auto 5px;
     max-width: 125px;
@@ -203,17 +251,6 @@ input[type=button].yellow {
     max-width:20px;
     margin-right: 2px;
     margin-bottom: 3px;
-}
-
-#navigation {
-    background-color: #FFCE40;
-    padding-left: 30px;
-    border-bottom: #eee thin groove ;
-}
-
-#navigation ul{
-    margin-bottom: 0px;
-    padding: 5px;
 }
 
 /* Content */
@@ -433,3 +470,35 @@ article img{
     min-width: 80%;
 }
 
+// Less mixins
+
+.border-rounded(@radius: 2px) {
+    -webkit-border-radius: @radius;
+    -moz-border-radius: @radius;
+    border-radius: @radius;
+    -moz-background-clip: padding; -webkit-background-clip: padding-box; background-clip: padding-box;
+}
+
+.box-shadow(@arg) {
+    -webkit-box-shadow: @arg;
+    -moz-box-shadow: @arg;
+    box-shadow:  @arg;
+}
+
+.gradient(@color: #F5F5F5, @start: #EEE, @stop: #FFF) {
+    background: @color;
+    background: -webkit-gradient(linear,
+        left bottom,
+        left top,
+        color-stop(0, @start),
+        color-stop(1, @stop));
+    background: -ms-linear-gradient(bottom,
+        @start,
+        @stop);
+    background: -moz-linear-gradient(center bottom,
+        @start 0%,
+        @stop 100%);
+    background: -o-linear-gradient(@stop,
+        @start);
+    filter: e(%("progid:DXImageTransform.Microsoft.gradient(startColorstr='%d', endColorstr='%d', GradientType=0)",@stop,@start));
+}
