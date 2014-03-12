@@ -1,10 +1,11 @@
 @extends('layouts.master')
 
 @section('nav')
-<ul class="breadcrumbs">
-    <li><a href="{{route('home')}}">Accueil</a></li>
-    <li><a href="{{action('contact@index')}}">Contact</a></li>
-</ul>
+<div class="ui breadcrumb">
+    <a class="item section" href="{{route('home')}}">Accueil</a>
+    <i class="right arrow icon divider"></i>
+    <a class="active section" href="{{action('contact@index')}}">Contact</a>
+</div>
 @stop
 
 @section('content')

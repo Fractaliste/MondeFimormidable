@@ -1,17 +1,15 @@
-<div id="h-titre">
+<div id="titre">
     <h1>
         {{HTML::linkRoute('home', 'Un monde FimOrmidable')}}
     </h1>
 </div>	
-<div id="h-navbar">
-    <ul class="menu">
-        <li><a href="{{route('home')}}"><i class="icon-home"></i> Accueil</a></li>
-        <li><a href="{{route('galerie')}}"><i class="icon-camera"></i> Créations</a></li>
-        <li class="tooltip" title="Non disponible pour le moment"><a>Qui-suis je <i class="icon-question-sign"></i></a></li>
-        <li class="fright"><a href="{{action('contact@index')}}">Contact / Commandes <i class="icon-envelope"></i></a></li>
-        <!--li><a></a></li-->
-    </ul>
-    <!--a href="{{action('contact@index')}}">
-        {{HTML::image('images/contact.png', 'contact', 
-        array('id' => 'h-contact', 'class' => 'img-rounded'))}}</a-->
+<div id="navbar">
+    <div class="ui menu">
+        <a href="{{route('home')}}" class="item"><i class="large home basic icon"></i> Accueil</a>
+        <a href="{{route('galerie')}}" class="item"><i class="large camera retro icon"></i> Créations</a>
+        <a class="item">Qui-suis je <i class="large help basic icon"></i></a>
+        <div class="right menu">
+            <a href="{{action('contact@index')}}" class="item">Contact / Commandes <i class="large mail basic icon"></i></a>
+        </div>
+    </div>
 </div>
