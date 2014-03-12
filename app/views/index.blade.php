@@ -1,20 +1,26 @@
 @extends('layouts.master')
 
 @section('nav')
-<ul class="breadcrumbs">
-    <li><a href="{{route('home')}}">Accueil</a></li>
+<div class="ui breadcrumb">
+    <a class="item section" href="{{route('home')}}">Accueil</a>
+    <i class="right arrow icon divider"></i>
     @if(isset($nav))
     @foreach($nav as $k => $n)
     @if($k == 'annee')
-    <li><a href="{{action('navigation@'.$k, $n)}}">{{$n}}</a></li>
+    @if(array_key_exists('mois', $nav))
+    <a class="section" href="{{action('navigation@'.$k, $n)}}">{{$n}}</a>
+    @else
+    <a class="active section" href="{{action('navigation@'.$k, $n)}}">{{$n}}</a>
+    @endif
     @elseif ($k == 'mois')
-    <li><a href="{{action('navigation@'.$k, array('annee' => $nav['annee'], 'mois' => $n))}}">{{$n}}</a></li>
+    <i class="right arrow icon divider"></i>
+    <a class="active section" href="{{action('navigation@'.$k, array('annee' => $nav['annee'], 'mois' => $n))}}">{{$n}}</a>
     @elseif(true)
 
     @endif
     @endforeach
     @endif
-</ul>
+</div>
 @stop
 
 @section('content')

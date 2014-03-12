@@ -4,7 +4,7 @@
 <div class="ui breadcrumb">
     <a class="item section" href="{{route('home')}}">Accueil</a>
     <i class="right arrow icon divider"></i>
-    <a class="active section" href="{{action('contact@index')}}">Contact</a>
+    <a class="active section">Contact</a>
 </div>
 @stop
 
