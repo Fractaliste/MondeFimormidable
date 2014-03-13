@@ -29,7 +29,7 @@ class contact extends \BaseController {
                 $message
                         ->to($data['email'], $data['nom'])
                         ->bcc('raphael.nourrit@gmail.com', 'Raphaël NOURRIT')
-                        ->bcc('amandine.jouin2@gmail.com', 'Amandine JOUIN')
+                        //->bcc('amandine.jouin2@gmail.com', 'Amandine JOUIN')
                         ->subject('Votre message sur http://monde-fimormidable.fr a bien été envoyé !');
             });
             return Redirect::to('contact')->with('envoi_contact', 'ok');

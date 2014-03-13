@@ -42,21 +42,39 @@
     @endif
 </article>
 @endif
-<hr class='alt1'/>
-<article>
+<div class="ui inverted divider"></div>
+<article class="ui small form segment" id="form-contact">
     <h3>Formulaire de contact</h3>
-    {{ Form::open(array('url' => 'contact', 'id' => 'form-contact'));}}
-    <p>{{ Form::label('nom', 'Votre nom : ');}}
-        {{ Form::text('nom');}}<em>(30 caractères maximum)</em></p>
-    <p>{{ Form::label('email', 'Votre email : ');}}
-        {{ Form::email('email');}}<em>(entrez une adresse mail valide)</em></p>
-    <p>{{ Form::label('telephone', 'Votre tel : ');}}
-        {{ Form::text('telephone', '', array( 'placeholder' => 'Champ optionnel'));}}
-        <em>(numéro à 10 chiffres commençant par 0)</em></p>
-    <p>{{ Form::label('motif', 'Motif : ');}}
-        {{ Form::select('motif', Config::get('enum.motif_contact'), 99);}}</p>
-    <p>{{ Form::label('texte', 'Message : ');}}{{ Form::textarea('texte');}}</p>
-    <p>{{ Form::submit('Envoyer !', array('id' => 'submit-contact'));}}</p>
+    {{ Form::open(array('url' => 'contact'));}}
+    <div class="two fields">
+        <p class="field">{{ Form::label('nom', 'Votre nom : ');}}
+            {{ Form::text('nom');}}<em>(30 caractères maximum)</em></p>
+        <p class="field">{{ Form::label('email', 'Votre email : ');}}
+            {{ Form::email('email');}}<em>(entrez une adresse mail valide)</em></p>
+    </div>
+    <div class="two fields">
+        <p class="field">{{ Form::label('telephone', 'Votre tel : ');}}
+            {{ Form::text('telephone', '', array( 'placeholder' => 'Champ optionnel'));}}
+            <em>(numéro à 10 chiffres commençant par 0)</em></p>
+        <div class="field">{{ Form::label('motif', 'Motif : ');}}
+            <div class="ui fluid selection dropdown">
+                <input type="hidden" id="motif" name="motif">
+                <div class="text">Motif</div>
+                <i class="dropdown icon"></i>
+                <div class="menu">
+                    @foreach(Config::get('enum.motif_contact') as $key=>$motif)
+                    @if($key == 99)
+                    <div class="item active" id="{{$key}}" data-value="{{$key}}">{{$motif}}</div>
+                    @else
+                    <div class="item" id="{{$key}}" data-value="{{$key}}">{{$motif}}</div>
+                    @endif
+                    @endforeach
+                </div>
+            </div>
+        </div>
+    </div>
+    <p class="field">{{ Form::label('texte', 'Message : ');}}{{ Form::textarea('texte');}}</p>
+    {{ Form::submit('Envoyer !', array('id' => 'submit-contact', 'class' => 'ui green submit button'));}}
     {{ Form::close();}}
 </article>
 @stop
@@ -68,5 +86,8 @@
         $(this).blur(function() {
             $(this).parent().children('em').hide();
         });
-    });</script>
+    });
+    $('#form-contact .field em').hide();
+    $('.ui.selection.dropdown').dropdown();
+</script>
 @stop

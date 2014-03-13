@@ -5,24 +5,24 @@
         @yield('head')
     </head>
     <body>
-        <div id="canevas">
+        <section id="canevas">
             <header id="header">
                 @include('layouts.header')
             </header>
             <nav id="navigation">
                 @yield('nav')
             </nav>
-            <div id="page" class="clearfix">
-                <nav id="menu" class="fleft">
+            <section id="page" class="ui grid">
+                <nav id="menu" class="three wide column">
                     @yield('menu')
                 </nav>
-                <main id="content" class="fright">
+                <main id="content" class="thirteen wide column">
                     @yield('content')
                 </main>
-            </div>
+            </section>
             <div id="push"></div>
-        </div>
-        <footer id="footer">
+        </section>
+        <footer id="footer" class="ui grid">
             @include('layouts.footer')
         </footer>
         {{javascript_include_tag()}}
