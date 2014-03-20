@@ -25,7 +25,9 @@
 
 @section('content')
 @foreach ($articles as $article)
+<section>
 @include('article')
+</section>
 @endforeach
 @stop
 

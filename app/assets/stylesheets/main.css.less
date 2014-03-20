@@ -16,12 +16,21 @@ and open the template in the editor.
 @margeHeader: 33px;
 @headdingFontSize: 2em;
 @headdingMarginLeft: 10px;
+.aHover(@color){
+    a {
+        color: @color;
+        &:hover {
+            color: lighten(@color, 10%);
+        }
+    }
+}
 
 html, body {
     height: 100%;
 }
 
 body {
+
     max-width:@pageWidth;
     margin: auto;
     background-color:@backgroundColor;
@@ -30,12 +39,12 @@ body {
     li {
         list-style:none;
     }
+    .aHover(#009FDA);
     a {
-        color: #009FDA;
         text-decoration: none;
-        &:hover {
-            color: #00BAFF;
-        }
+        /*        &:hover {
+                    color: #00BAFF;
+                }*/
         &.dark{
             color: #333;
         }
@@ -67,37 +76,32 @@ body {
     height: @margeFooter;
 }
 
-#content {
-    h1 {
-        font-size: 2.5em;
-        font-family: Trebuchet, sans-serif;
-        color: #E61717;
-        margin-left: 30px;
-        a {
-            color: #E61717;
-            text-decoration: none;
-        }
-    }
+h1 {
+    font-size: 2.5em;
+    font-family: Trebuchet, sans-serif;
+    /*color: #E61717;*/
+    margin-left: 30px;
+    .aHover(#E61717);
+}
 
-    h2 {
-        font-size: @headdingFontSize;
-        margin-left: @headdingMarginLeft;
-    }
+h2 {
+    font-size: @headdingFontSize;
+    margin-left: @headdingMarginLeft;
+}
 
-    h3 {
-        font-size: @headdingFontSize - 2 * 2;
-        margin-left: @headdingMarginLeft + 5 * 2;
-    }
+h3 {
+    font-size: @headdingFontSize - 2 * 2;
+    margin-left: @headdingMarginLeft + 5 * 2;
+}
 
-    h4 {
-        font-size: @headdingFontSize - 2 * 3;
-        margin-left: @headdingMarginLeft + 5 * 3;
-    }
+h4 {
+    font-size: @headdingFontSize - 2 * 3;
+    margin-left: @headdingMarginLeft + 5 * 3;
+}
 
-    h5 {
-        font-size: @headdingFontSize - 2 * 4;
-        margin-left: @headdingMarginLeft + 5 * 4;
-    }
+h5 {
+    font-size: @headdingFontSize - 2 * 4;
+    margin-left: @headdingMarginLeft + 5 * 4;
 }
 
 button.yellow,
@@ -151,13 +155,28 @@ input[type=button].yellow {
             &:hover {
                 background-color: rgba(255, 255, 255, 0.3);
             }
+            span {
+                    vertical-align:middle;
+            }
+            @media only screen and (max-width: 700px){
+                #nav-contact {
+                    display: none;
+                }
+            }
+            @media only screen and (max-width: 530px){
+                .nav-text {
+                    display: none;
+                }
+            }
         }
     }
 }
+
 /* Content */
 #page {
     background-color: @backgroundPageColor; 
     margin:auto;
+    padding-top:20px;
 }
 
 /* Navbar */
@@ -178,7 +197,7 @@ input[type=button].yellow {
 }
 
 #menu {
-    .ligne(){
+    .ligneMenu(){
         #shadow > .box(1px 1px 1px 0px #656565);
         text-align: right;
         padding: 3px 10px 3px 0px;
@@ -191,13 +210,13 @@ input[type=button].yellow {
         font-weight: bold;
         cursor:pointer;
         background-color: rgba(255, 255, 255, 0.7);
-        .ligne();
+        .ligneMenu();
 
     }
     section {
         margin-top:5px;
         .item {
-            .ligne();
+            .ligneMenu();
             font-weight: normal;
             font-size: 0.9rem;
             background: -moz-linear-gradient(left,  rgba(255,206,64,0.65) 0%, rgba(255,211,84,0.65) 15%, rgba(255,217,107,1) 32%, rgba(254,240,198,1) 100%); /* FF3.6+ */
@@ -226,13 +245,22 @@ input[type=button].yellow {
 }
 
 #content {
+
+    section {
+        margin-bottom: 4em;
+        &:last-child{
+            margin-bottom: 1em;            
+        }
+    }
+
     header {
-        margin: 10px 10px 20px 10px;
-        -webkit-border-bottom-right-radius: 10px;
-        border-bottom-right-radius: 10px;
-        -moz-box-shadow: 3px 3px 6px 0 #A68115;
-        -webkit-box-shadow: 3px 3px 6px #A68115;
-        box-shadow: 3px 3px 6px 0 #A68115;
+        #border > .radius(@bottomright: 10px);
+        #shadow > .box(3px 3px 6px 0 #A68115);
+        margin-right: 30px;
+        h1 {
+            margin-top: 0px;
+            margin-bottom: 20px;
+        }
     }
     article {
         padding: 10px 30px;
